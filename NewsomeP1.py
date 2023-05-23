@@ -1,17 +1,24 @@
 # Programmer: Corrigan Newsome
 # Email: cnewsome2@cnm.edu
-# Purpose: To help user calculate the surface area and volume of a square pyramid
+# Purpose: To help user calculate the surface area and volume of a square
+# pyramid
+
+# Import Math Library
+import math
 
 # Recieve inputs from user
-peremiterOfBase = float(input('Please enter the perimeter of the base: '))
-slantHeight = float(input('Please enter slant height of pyramid: '))
-areaOfBase = float(input("Please enter the are of the base: "))
+baseLength = float(
+    input('Please enter the are of the base(in feet): '))
+height = float(
+    input('Please enter slant height of pyramid(in feet): '))
 
-# Create SA formula
-surfaceAreaofPyramid = (peremiterOfBase * slantHeight)/2 + areaOfBase
-# Print Results
-print(surfaceAreaofPyramid)
+# Create formulas
+slantHeight = math.sqrt((height**2) + (baseLength/2)**2)
 
-# Volume of a pyramid V = 1/3(ba)(h)
-volume = 1/3 * areaOfBase * slantHeight
-print(volume)
+surfaceArea = 1/2 * (math.sqrt(baseLength**2) + 4 * (height))
+
+volume = ((baseLength**2) * height)/3
+
+# Print results
+print('The surface area is', surfaceArea)
+print('The volume is', volume)
