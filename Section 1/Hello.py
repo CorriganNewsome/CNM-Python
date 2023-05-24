@@ -10,6 +10,5 @@ num2_str2 = input('Please enter another number: ')
 num2 = float(num2_str2)
 # Add numbers together
 sum = num1 + num2
-#Display result
+# Display result
 print('The sum of your numbers is', sum)
-
