@@ -11,5 +11,5 @@ calculatedSide = (hypotenus**2 - givenSide**2)**0.5
 # Display Result
 print('\nThe length of the calculated side is,', calculatedSide)
 
-#Thank you message
+# Thank you message
 print('\nThank you for using the Pythagorean Theorem calculator')
