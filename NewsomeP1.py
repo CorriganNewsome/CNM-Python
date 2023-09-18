@@ -9,7 +9,7 @@ import math
 # Recieve inputs from user
 baseLength = float(
     input('Please enter the are of the base(in feet): '))
-height = float(
+    height = float(
     input('Please enter slant height of pyramid(in feet): '))
 
 # Create formulas
