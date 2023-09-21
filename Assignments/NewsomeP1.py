@@ -1,6 +1,7 @@
 # Programmer: Corrigan Newsome
 # Email: cnewsome2@cnm.edu
-# Purpose: To help user calculate the surface area and volume of a square pyramid.
+# Purpose: To help user calculate the surface area and volume of a square 
+# pyramid.
 
 # Import Math Library
 import math
@@ -14,6 +15,10 @@ height = float(
 # Create formulas
 
 surfaceArea = baseLength * (math.sqrt(baseLength**2 + 4 * (height**2)))
+
+# slantHeight = (math.sqrt(height**2) + (baseLength / 2) **2)
+
+# pyramidSide = slantHeight * (baseLength / 2)
 
 volume = ((baseLength**2) * height)/3
 
