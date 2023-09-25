@@ -4,7 +4,7 @@
 # Purpose: Provides user capability to view contact info
 
 
-# 1.	Your program will initialize lists to store information about the states.
+# 1. Your program will initialize lists to store information about the states.
 # You should have one list for the names of the states,
 # one list for the names of the capitals,
 # one list for the number of districts per state and one list
