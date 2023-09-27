@@ -1,7 +1,7 @@
 # NewsomeP2
 # Programmer: Corrigan Newsome
 # Email: cnewsome2@cnm.edu
-# Purpose: Provides user capability to view contact info
+# Purpose: To use lists and indexing to select states, capitals, districts, and order of entry into union.
 
 
 # 1. Your program will initialize lists to store information about the states.
