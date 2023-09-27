@@ -239,12 +239,13 @@ capitalName = captials[stateNumber - 1]
 districtName = districs[stateNumber - 1]
 orderName = order[stateNumber - 1]
 print(
-    "State: ",
+    "The Capital of",
     stateName,
-    "\nCapital: ",
+    "is",
     capitalName,
-    "\nDistrict: ",
+    "it has",
     districtName,
-    "\nOrder joined the Union: ",
+    "Congressional Districts and it is state number",
     orderName,
+    "in the Union",
 )
