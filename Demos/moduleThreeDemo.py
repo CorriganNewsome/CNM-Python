@@ -1,8 +1,3 @@
-website = "http://www.python.org"
-new_website = website[:-3] + "com"
-print(new_website)
-
-
 ## Stiring Formatting Demo
 
 # Ask for user name
@@ -21,16 +16,7 @@ area = height * width  # sqft
 gallonsForOneCoat = area / sqft  # gallons
 gallons = gallonsForOneCoat * numCoats  # gallons
 
-# Display results
+# Display results with %s
 print(
-    name,
-    "the number of gallons needed for a wall that is",
-    height,
-    "ft high and",
-    width,
-    "ft wide with",
-    numCoats,
-    "coats is",
-    gallons,
-    "gallons",
+    f"{name}, the number of gallons needed for a wall that is {height} ft high and {width} ft wide with {numCoats} coats is {gallons} gallons. Thank you {name}"
 )
