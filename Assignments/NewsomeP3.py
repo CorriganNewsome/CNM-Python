@@ -56,7 +56,15 @@ fruits = [
     "Watermelon",
 ]
 # Solve for single word fruit names first, for extra challenges solve for double word fruit names.
+
 # Asks the user for a sentence.
+userSentence = input("Please enter a sentence with a fruit in it: ")
+print(userSentence)
+
 # Tells the user how many fruits are in that sentence using a conversion specifier.
+
+
 # Finds and replaces at least one instance of a fruit in the sentence with “Brussel Sprouts”.
+
+
 # Displays the new sentence to the user.
