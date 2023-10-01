@@ -3,6 +3,8 @@
 # Email: cnewsome2@cnm.edu
 # Purpose: provides user capability to find fruit in a string
 
+import string
+
 # Use the list of fruits included with the assignment.
 
 fruits = [
@@ -59,12 +61,26 @@ fruits = [
 
 # Asks the user for a sentence.
 userSentence = input("Please enter a sentence with a fruit in it: ")
-print(userSentence)
+titleCase = userSentence.title()
 
-# Tells the user how many fruits are in that sentence using a conversion specifier.
+# remove punctuation
+newSentence = titleCase.translate(str.maketrans("", "", string.punctuation))
+
+# convert it to a list
+sentenceList = list(newSentence.split(" "))
+print(list(sentenceList))
 
 
-# Finds and replaces at least one instance of a fruit in the sentence with “Brussel Sprouts”.
+set1 = set(sentenceList)
+set2 = set(fruits)
+result = list(set1 & set2)
 
-
-# Displays the new sentence to the user.
+if len(result) > 0:
+    substitution = userSentence.split()
+    substitution[sentenceList.index(result[-1])] = "Brussels Sprouts"
+    print(f"\n\nI found {len(result)} fruits in your sentnece")
+    print(f"Your fruits are {result}")
+    print("Your final sentence with some brussels spouts is:", " ".join(substitution))
+else:
+    print("I found no fruits in your sentnece")
+    print(f"Your final sentence is: {userSentence}")
