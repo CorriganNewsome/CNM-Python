@@ -70,11 +70,12 @@ newSentence = titleCase.translate(str.maketrans("", "", string.punctuation))
 sentenceList = list(newSentence.split(" "))
 print(list(sentenceList))
 
-
+# set two lists into single result list
 set1 = set(sentenceList)
 set2 = set(fruits)
 result = list(set1 & set2)
 
+# if statement, if the user enters a fruit within the fruits list.
 if len(result) > 0:
     substitution = userSentence.split()
     substitution[sentenceList.index(result[-1])] = "Brussels Sprouts"
