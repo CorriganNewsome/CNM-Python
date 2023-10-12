@@ -1,7 +1,7 @@
 # NewsomeP5
 # Programmer: Corrigan Newsome
 # Email: cnewsome2@cnm.edu
-# Purpose: Utlizing dictionary in Python to translate a language.
+# Purpose: Creating rock, paper, scissors game with if statements and loops.
 
 import random
 
