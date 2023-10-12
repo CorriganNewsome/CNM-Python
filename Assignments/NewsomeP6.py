@@ -19,4 +19,3 @@
 # Display a nicely formatted message to the user telling them the distance between those two locations.
 # Finally ask the user if they want to do another.
 # When done display a good bye message outside the loop.
-# use to push
