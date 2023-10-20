@@ -1,18 +1,80 @@
-## In your program define a class called GeoPoint that will have the following:
-# An init (self) method that will set two attributes (variables) called self.lat, self.lon for the location of that point. The init method will also initialize a description attribute (variable) that will start off as the empty string “”.
-# A SetPoint(self, lat, lon) method that will set the values of self.lat, self.lon
-# A GetPoint(self) method that will return a tuple or list with self.lat, self.lon.
-# A Distance(self, lat, lon) method that will figure out the distance between the object’s self.lat, self.lon and lat, lon parameters passed in.
-# A SetDescription(self, description) method that will set the objects self.description attribute (variable).
-# A GetDescription(self) method that will return the objects self.description attribute.
-## In the main part of your program do the following:
-# Instantiate two points
-# Use the SetPoint and SetDescription methods to set each of the points locations and descriptions. Make sure they have different coordinates and different descriptions.
-# Inside a “Do another (y/n)?” loop do the following:
-# Ask the user for their location. You can ask for coordinates in three inputs or ask them for their coordinates in one input with each element separated by a coma.
-# Use point1 and point2’s Distance method to find the distance from each point to the user’s location
-# distanceToOne = point1.Distance(lat, lon)
-# distanceToTwo = point2.Distance(lat, lon)
-## Tell the user which point they are closest to in this format:
-# You are closest to <description> which is located at <point’s coordinates>
-# Ask “Do another (y/n)?” and loop if they respond with ‘y’
+# NewsomeP7
+# Programmer: Corrigan Newsome
+# Email: cnewsome2@cnm.edu
+# Purpose: Use classes to find if you're closer to New York or Las Angeles based off of given lat and long.
+
+import math
+
+
+class GeoPoint:
+    def __init__(self):
+        self.lat = 0.0
+        self.lon = 0.0
+        self.description = ""
+
+    def setPoint(self, lat, lon):
+        self.lat = lat
+        self.lon = lon
+
+    def getPoint(self):
+        return [self.lat, self.lon]
+
+    def distance(self, lat, lon):
+        # Calculate distance using Haversine formula
+        R = 6371  # Radius of the Earth in kilometers
+
+        lat1 = math.radians(self.lat)
+        lon1 = math.radians(self.lon)
+        lat2 = math.radians(lat)
+        lon2 = math.radians(lon)
+
+        dlat = lat2 - lat1
+        dlon = lon2 - lon1
+
+        a = math.sin(dlat / 2) * math.sin(dlat / 2) + math.cos(lat1) * math.cos(
+            lat2
+        ) * math.sin(dlon / 2) * math.sin(dlon / 2)
+        c = 2 * math.atan2(math.sqrt(a), math.sqrt(1 - a))
+        distance = R * c
+
+        return distance
+
+    def setDescription(self, description):
+        self.description = description
+
+    def getDescription(self):
+        return self.description
+
+
+# Instiantiate two points
+point1 = GeoPoint()
+point2 = GeoPoint()
+
+# Set point1's location and description
+point1.setPoint(40.7128, 74.0060)
+point1.setDescription("New York, NY")
+
+# Set point2's location and description
+point2.setPoint(34.0549, 118.2426)
+point2.setDescription("Las Angeles, CA")
+
+while True:
+    user_input = input("Enter your location (latitude, longitude): ")
+    lat, lon = map(float, user_input.split(","))
+
+    distance_to_one = point1.distance(lat, lon)
+    distance_to_two = point2.distance(lat, lon)
+
+    if distance_to_one < distance_to_two:
+        closest_point = point1
+    else:
+        closest_point = point2
+
+    print(
+        f"You are closest to: {closest_point.getDescription()} \n Which is located at {closest_point.getPoint()}"
+    )
+
+    do_another = input("Do another (y/n)? ")
+    if do_another.lower() != "y":
+        print("Thank you for using my lat and long program")
+        break
