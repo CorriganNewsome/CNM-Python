@@ -78,7 +78,7 @@ while True:
     except ValueError:  # What will print if error occurs.
         print("Error, you must enter two numeric values only")
 
-    except Exception as exc:
+    except Exception as exc:  # Catch any errors we may have missed.
         print(f"Error! {exc}")
 
     do_another = input("Do another (y/n)? ")
