@@ -11,4 +11,3 @@ person_one = Person()
 
 person_one.set_name("Luke Skywalker")
 
-print(Person)
