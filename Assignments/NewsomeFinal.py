@@ -2,49 +2,49 @@
 # Email: cnewsome2@cnm.edu
 # Purpose: To convert tempatures from C to F and vice versa.
 
-import math
-
-
-def celciusToFahrenheit(C):
-    F = C * (9 / 5) + 32
-    return F
-
-
-def FahrenheitToCelcius(F):
-    C = (F - 32) * 5 / 9
-    return C
-
-
-def goodbye():
-    print("Thank you for using the tempature converter program")
-
 
 while True:
-    print("Welcome to the tempature converter.")
-    userInput = input("Would you like to convert Celcius to Farenheight? y/n: ")
+    # Calculates C to F
+    def celciusToFahrenheit(C):
+        F = round(C * (9 / 5) + 32)
+        return F
 
-    if userInput == "y":
-        inputCelcius = float(input("Please enter your tempature, in Celcius: "))
-        print(
-            f"Your temapture is {inputCelcius}, your tempature in Farenheight is {celciusToFahrenheit(inputCelcius)}"
-        )
+    # Calculates F to C
+    def FahrenheitToCelcius(F):
+        C = round((F - 32) * 5 / 9)
+        return C
 
-    elif userInput == "n":
-        userInput = input("Would you like to convert Farenheight to Celcius? y/n: ")
-        if userInput.lower() == "y":
-            inputFarenheight = float(
-                input("Please enter your tempature, in Farenheight: ")
-            )
+    def goodbye():
+        print("Thank you for using the tempature converter program")
+
+    try:  # add error handling
+        print("Welcome to the tempature converter.")
+        # Take input from user.
+        userInput = input("Is this temp Celsius or Farenheight? C/F: ")
+        tempature = round(float(input("Please enter the tempature: ")))
+
+        if userInput.lower() == "c":
+            celciusToFahrenheit(tempature)
             print(
-                f"Your temapture is {inputFarenheight}, your tempature in Farenheight is {FahrenheitToCelcius(inputFarenheight)}"
+                f"The temp you entered was {tempature} degrees Celcius, the temp in Farenheight is {celciusToFahrenheit(tempature)}"
             )
-        elif userInput != "y":
-            goodbye()
-            break
-    else:
-        break
+        elif userInput.lower() == "f":
+            FahrenheitToCelcius(tempature)
+            print(
+                f"The temp you entered was {tempature} degrees Farenheight, the temp in Celcius is {FahrenheitToCelcius(tempature)}"
+            )
+        else:
+            print("Incorrect Input")
+
+    except (
+        ValueError
+    ):  # Catch error when a user enters a letter instead of a number for temp.
+        print("Error, you must enter numeric values only")
+
+    except Exception as exc:  # Catch any errors we may have missed.
+        print(f"Error! {exc}")
 
     do_another = input("Do another (y/n)? ")
     if do_another.lower() != "y":
-        goodbye()
+        print("Thank you for using my temp program")
         break
