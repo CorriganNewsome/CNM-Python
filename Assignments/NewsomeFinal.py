@@ -2,9 +2,15 @@
 # Email: cnewsome2@cnm.edu
 # Purpose: To convert tempatures from C to F and vice versa.
 
+## Features used in the project.
+# Loops
+# Error Handling
+# If statements
+# Functions
+# User input
 
 while True:
-    # Calculates C to F
+    # Calculates C to F usiung functions
     def celciusToFahrenheit(C):
         F = round(C * (9 / 5) + 32)
         return F
@@ -23,7 +29,7 @@ while True:
         userInput = input("Is this temp Celsius or Farenheight? C/F: ")
         tempature = round(float(input("Please enter the tempature: ")))
 
-        if userInput.lower() == "c":
+        if userInput.lower() == "c":  # Using if statement
             celciusToFahrenheit(tempature)
             print(
                 f"The temp you entered was {tempature} degrees Celcius, the temp in Farenheight is {celciusToFahrenheit(tempature)}"
