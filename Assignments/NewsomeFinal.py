@@ -46,5 +46,5 @@ while True:
 
     do_another = input("Do another (y/n)? ")
     if do_another.lower() != "y":
-        print("Thank you for using my temp program")
+        goodbye()
         break
