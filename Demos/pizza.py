@@ -1,8 +1,8 @@
 class Pizza:
     def __init__(self, crust, size, toppings):
-        self.crust = "hand tossed"
-        self.size = "Large"
-        self.toppings = ["Cheese"]
+        self.crust = crust
+        self.size = size
+        self.toppings = toppings
 
 
 first_pizza = Pizza()

@@ -7,26 +7,26 @@ import math
 
 
 class GeoPoint:
-    def __init__(self):
-        self.lat = 0.0
-        self.lon = 0.0
-        self.description = ""
-
-    def setPoint(self, lat, lon):
+    def __init__(self, lat=0, lon=0, description="TBD"):
         self.lat = lat
         self.lon = lon
+        self.description = description
+
+    def setPoint(self, point):
+        self.lat = point[0]
+        self.lon = point[1]
 
     def getPoint(self):
-        return [self.lat, self.lon]
+        return self.lat, self.lon
 
-    def distance(self, lat, lon):
+    def distance(self, point):
         # Calculate distance using Haversine formula
         R = 6371  # Radius of the Earth in kilometers
 
-        lat1 = math.radians(self.lat)
-        lon1 = math.radians(self.lon)
-        lat2 = math.radians(lat)
-        lon2 = math.radians(lon)
+        lat1 = math.radians(self.point[0])
+        lon1 = math.radians(self.point[1])
+        lat2 = math.radians(self.point[0])
+        lon2 = math.radians(self.point[1])
 
         dlat = lat2 - lat1
         dlon = lon2 - lon1
@@ -39,11 +39,16 @@ class GeoPoint:
 
         return distance
 
-    def setDescription(self, description):
-        self.description = description
+    def setDescription(self, descriptionString):
+        self.description = descriptionString
 
     def getDescription(self):
         return self.description
+
+    point = property(getPoint, setPoint)
+    descriptionString = property(
+        getDescription, setDescription
+    )  # Whenever I have this property I have an issue of recursion that I cannot figure out.
 
 
 # Instiantiate two points
@@ -51,21 +56,21 @@ point1 = GeoPoint()
 point2 = GeoPoint()
 
 # Set point1's location and description
-point1.setPoint(40.7128, 74.0060)
-point1.setDescription("New York, NY")
+point1.point = (40.7128, 74.0060)
+point1.description = "New York, NY"
 
 # Set point2's location and description
-point2.setPoint(34.0549, 118.2426)
-point2.setDescription("Las Angeles, CA")
+point2.point = (34.0549, 118.2426)
+point2.description = "Las Angeles, CA"
 
 
 while True:
     try:  # Adding error handling.
         user_input = input("Enter your location (latitude, longitude): ")
-        lat, lon = map(float, user_input.split(","))
+        userPoint = map(float, user_input.split(","))
 
-        distance_to_one = point1.distance(lat, lon)
-        distance_to_two = point2.distance(lat, lon)
+        distance_to_one = point1.distance(userPoint)
+        distance_to_two = point2.distance(userPoint)
 
         if distance_to_one < distance_to_two:
             closest_point = point1
