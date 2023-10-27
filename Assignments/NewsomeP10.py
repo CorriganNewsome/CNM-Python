@@ -62,6 +62,9 @@ point2.description = "Las Angeles, CA"
 
 while True:
     try:  # Adding error handling.
+        pointList = []
+        f = open("Assignments/read_file.rtf", "r")
+        f.readline()
         user_input = input("Enter your location (latitude, longitude): ")
         userPoint = map(float, user_input.split(","))
 
