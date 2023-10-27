@@ -46,9 +46,7 @@ class GeoPoint:
         return self.description
 
     point = property(getPoint, setPoint)
-    descriptionString = property(
-        getDescription, setDescription
-    )  # Whenever I have this property I have an issue of recursion that I cannot figure out.
+    descriptionString = property(getDescription, setDescription)
 
 
 # Instiantiate two points
@@ -62,7 +60,6 @@ point1.description = "New York, NY"
 # Set point2's location and description
 point2.point = (34.0549, 118.2426)
 point2.description = "Las Angeles, CA"
-
 
 while True:
     try:  # Adding error handling.
