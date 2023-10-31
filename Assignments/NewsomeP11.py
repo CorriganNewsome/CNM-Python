@@ -24,6 +24,11 @@ def display_text():
 label = Label(win, text="", font=("Courier 22 bold"))
 label.pack()
 
+# Create an Entry widget to accept User Input
+entry = Entry(win, width=40)
+entry.focus_set()
+entry.pack()
+
 # Create a Button to validate Entry Widget
 ttk.Button(win, text="Okay", width=20, command=display_text).pack(pady=20)
 
@@ -82,11 +87,6 @@ point1.description = "New York, NY"
 # Set point2's location and description
 point2.point = (34.0549, 118.2426)
 point2.description = "Las Angeles, CA"
-
-# Create an Entry widget to accept User Input
-entry = Entry(win, width=40)
-entry.focus_set()
-entry.pack()
 
 while True:
     try:  # Adding error handling.
