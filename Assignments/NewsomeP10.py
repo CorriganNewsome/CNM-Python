@@ -62,9 +62,6 @@ point2.description = "Las Angeles, CA"
 
 while True:
     try:  # Adding error handling.
-        pointList = []
-        f = open("Assignments/read_file.rtf", "r")
-        f.readline()
         user_input = input("Enter your location (latitude, longitude): ")
         userPoint = map(float, user_input.split(","))
 
@@ -79,6 +76,17 @@ while True:
         print(
             f"You are closest to: {closest_point.getDescription()} \n Which is located at {closest_point.getPoint()}"
         )
+
+        # Adding file reading
+
+        pointList = []
+        f = open("Assignments/read_file.rtf", "r+")
+        readFile = f.readline()
+        newPoint = GeoPoint(lat=0, lon=0, description="TBD")
+        pointList.append(newPoint)
+
+        f.close()
+
     except ValueError:  # What will print if error occurs.
         print("Error, you must enter two numeric values only")
 
