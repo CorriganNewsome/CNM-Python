@@ -1,6 +1,6 @@
 # Programmer: Corrigan Newsome
 # Email: cnewsome2@cnm.edu
-# Purpose: Create db , read points in a db, use read values to create a point and add that point to a db.
+# Purpose: Read from a DB.
 
 import math
 import sqlite3
