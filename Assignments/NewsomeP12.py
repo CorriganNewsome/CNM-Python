@@ -1,9 +1,32 @@
 # Programmer: Corrigan Newsome
 # Email: cnewsome2@cnm.edu
-# Purpose: Crate a list, read points in a file, use read values to create a point and add that point to a list.
+# Purpose: Create db , read points in a db, use read values to create a point and add that point to a db.
 
 import math
+import sqlite3
 
+conn = sqlite3.connect("NewsomeP12.db")
+curs = conn.cursor()
+# use cursor to do some work with DB.
+
+
+starting_data = (
+    (100.200, 123.456, "Main Campus"),
+    (120.33, 142.345, "Montoya"),
+    (153.23, 322.345, "Rio Rancho"),
+    (133.23, 143.345, "STEMULUS Center"),
+    (153.42, 122.345, "ATC"),
+)
+# Insert Data
+for row in starting_data:
+    cmd_str = """
+        INSERT INTO locations(lat,lon,description)
+        VALUES(?,?,?)
+        """
+    curs.execute(cmd_str,row)
+conn.commit()
+
+conn.close()
 
 class GeoPoint:
     def __init__(self, lat=0, lon=0, description="TBD"):
@@ -60,15 +83,6 @@ point1.description = "New York, NY"
 # Set point2's location and description
 point2.point = (34.0549, 118.2426)
 point2.description = "Las Angeles, CA"
-
-pointList = []
-f = open("Assignments/read_file.rtf", "r+")
-readFile = f.read()
-readFile = readFile.split(",")
-newPoint = GeoPoint(lat=0, lon=0, description="TBD")
-pointList.append(newPoint)
-f.close()
-print(readFile)
 
 while True:
     try:  # Adding error handling.
