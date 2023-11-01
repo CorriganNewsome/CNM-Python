@@ -9,24 +9,31 @@ conn = sqlite3.connect("NewsomeP12.db")
 curs = conn.cursor()
 # use cursor to do some work with DB.
 
-
-starting_data = (
-    (100.200, 123.456, "Main Campus"),
-    (120.33, 142.345, "Montoya"),
-    (153.23, 322.345, "Rio Rancho"),
-    (133.23, 143.345, "STEMULUS Center"),
-    (153.42, 122.345, "ATC"),
-)
+# starting data
+#starting_data = (
+   # (100.200, 123.456, "Main Campus"),
+   # (120.33, 142.345, "Montoya"),
+    # (153.23, 322.345, "Rio Rancho"),
+    # (133.23, 143.345, "STEMULUS Center"),
+     #(153.42, 122.345, "ATC"),
+ #)
 # Insert Data
-for row in starting_data:
-    cmd_str = """
-        INSERT INTO locations(lat,lon,description)
-        VALUES(?,?,?)
-        """
-    curs.execute(cmd_str,row)
-conn.commit()
+ #for row in starting_data:
+     #cmd_str = """
+      #   INSERT INTO locations(lat,lon,description)
+       #  VALUES(?,?,?)
+       #  """
+     #curs.execute(cmd_str,row)
 
+#SQL Select
+sql_cmd = 'SELECT * FROM locations'
+curs.execute(sql_cmd)
+data = curs.fetchall()
+conn.commit()
 conn.close()
+
+print(data)
+
 
 class GeoPoint:
     def __init__(self, lat=0, lon=0, description="TBD"):
@@ -70,11 +77,11 @@ class GeoPoint:
     point = property(getPoint, setPoint)
     descriptionString = property(getDescription, setDescription)
 
+newPoint = GeoPoint(lat=0, lon=0, description="TBD")
 
 # Instiantiate two points
 point1 = GeoPoint()
 point2 = GeoPoint()
-newPoint = GeoPoint()
 
 # Set point1's location and description
 point1.point = (40.7128, 74.0060)
